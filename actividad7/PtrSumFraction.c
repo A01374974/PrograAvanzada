@@ -27,6 +27,7 @@ Fraction* SimplifyFraction(const Fraction* const frac){
     return f;
 }
 
+
 Fraction* SumFraction(const Fraction* const frac1, const Fraction* const frac2){
     int a = frac1 -> numerator;
     int b = frac1 -> denominator;
@@ -54,4 +55,4 @@ void main(){
     free(f2);
     printf("%d\n%d\n",fRes -> numerator, fRes -> denominator);
     free(fRes);
-}
+}  
