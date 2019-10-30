@@ -46,62 +46,60 @@ Minutia *findCentroid(const MinutiaArray *const minutiaArray,double (*distance)(
     return &minutiaArray->minutiae[itemIndex];  
 }
 
-int testFindCentroid()
-{
+int testFindCentroid(){
     MinutiaArray *minutiaArray = createMinutiaArray(10);
 
-    Minutia *minutia0 = createMinutia(20, 19, 1, Ending);
+    Minutia *minutia0 = createMinutia(20, 19, 10, Ending);
     minutiaArray->minutiae[0] = *minutia0;
     free(minutia0);
 
-    Minutia *minutia1 = createMinutia(15, 9, 1, Bifurcation);
+    Minutia *minutia1 = createMinutia(15, 9, 20, Bifurcation);
     minutiaArray->minutiae[1] = *minutia1;
     free(minutia1);
 
-    Minutia *minutia2 = createMinutia(6, 24, 1, Bifurcation);
+    Minutia *minutia2 = createMinutia(6, 24, 30, Bifurcation);
     minutiaArray->minutiae[2] = *minutia2;
     free(minutia2);
 
-    Minutia *minutia3 = createMinutia(4, 7, 1, Unknown);
+    Minutia *minutia3 = createMinutia(4, 7, 40, Unknown);
     minutiaArray->minutiae[3] = *minutia3;
     free(minutia3);
 
-    Minutia *minutia4 = createMinutia(4, 5, 1, Unknown);
+    Minutia *minutia4 = createMinutia(4, 5, 50, Unknown);
     minutiaArray->minutiae[4] = *minutia4;
     free(minutia4);
 
-    Minutia *minutia5 = createMinutia(8, 9, 1, Ending);
+    Minutia *minutia5 = createMinutia(8, 9, 60, Ending);
     minutiaArray->minutiae[5] = *minutia5;
     free(minutia5);
 
-    Minutia *minutia6 = createMinutia(5, 12, 1, Bifurcation);
+    Minutia *minutia6 = createMinutia(5, 12, 70, Bifurcation);
     minutiaArray->minutiae[6] = *minutia6;
     free(minutia6);
 
-    Minutia *minutia7 = createMinutia(7, 21, 1, Bifurcation);
+    Minutia *minutia7 = createMinutia(7, 21, 80, Bifurcation);
     minutiaArray->minutiae[7] = *minutia7;
     free(minutia7);
 
-    Minutia *minutia8 = createMinutia(13, 1, 1, Unknown);
+    Minutia *minutia8 = createMinutia(13, 1, 90, Unknown);
     minutiaArray->minutiae[8] = *minutia8;
     free(minutia8);
 
-    Minutia *minutia9 = createMinutia(2, 10, 1, Unknown);
+    Minutia *minutia9 = createMinutia(2, 10, 100, Unknown);
     minutiaArray->minutiae[9] = *minutia9;
     free(minutia9);
 
     Minutia *result = findCentroid(minutiaArray, computeDistance);
 
     // Checa que la minuta con la menor distacia acumulada sea la minuta en el indice 5
-    int res;
     if (&minutiaArray->minutiae[5] == result){
-        res = 1;
+        releaseMinutiaArray(minutiaArray);
+        return 1;
     }else{
-        res = 0;
+        releaseMinutiaArray(minutiaArray);
+        return 0;
     }
     
-    releaseMinutiaArray(minutiaArray);
-    return res;
 }
 
 void main(){
