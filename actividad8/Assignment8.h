@@ -1,8 +1,3 @@
-#ifndef TAREA_8_ASSIGNMENT8_H
-#define TAREA_8_ASSIGNMENT8_H
-
-#endif //TAREA_8_ASSIGNMENT8_H
-
 typedef enum{
     numerical,
     nominal
@@ -17,9 +12,9 @@ typedef struct {
 double computeEuclideanDissimilarity(const Instance * const instanceOnePtr, const Instance * const instanceTwoPtr);
 
 Instance * findNearestNeighbor(const Instance * const instance,
-                                const int length,
-                                const Instance * const query,
-                                double (*dissimilarityFunction)(const Instance * const instanceOne, const Instance * const instanceTwo));
+                               const int length,
+                               const Instance * const query,
+                               double (*dissimilarityFunction)(const Instance * const instanceOne, const Instance * const instanceTwo));
 
 int testDissimilarityLength0();
 

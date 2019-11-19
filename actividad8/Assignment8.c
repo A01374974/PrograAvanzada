@@ -134,7 +134,7 @@ int testDissimilarityNotEqualFeatureTypes(){
     instancePtrOne->featureTypes[1] = 1;
     instancePtrOne->featureTypes[2] = 1;
     instancePtrOne->featureTypes[3] = 1;
-    instancePtrOne->featureTypes[4] = 1; //FeatureType marked as 1
+    instancePtrOne->featureTypes[4] = 1; 
 
     Instance* instancePtrTwo = createInstance(5);
     instancePtrTwo->features[0] = 1;
@@ -146,7 +146,7 @@ int testDissimilarityNotEqualFeatureTypes(){
     instancePtrTwo->featureTypes[1] = 1;
     instancePtrTwo->featureTypes[2] = 1;
     instancePtrTwo->featureTypes[3] = 1;
-    instancePtrTwo->featureTypes[4] = 0; //FeatureType marked as 0
+    instancePtrTwo->featureTypes[4] = 0; 
 
     double result = computeEuclideanDissimilarity(instancePtrOne, instancePtrTwo);
 
@@ -184,7 +184,6 @@ int testDissimilarity(){
     freeInstance(instancePtrOne);
     freeInstance(instancePtrTwo);
 
-    // (11-25)^2 + 1 + (3-9)^2 + 0 = 233 -> sqrt(233) = 15.26433
     return (result - 15.26433) < 0.0001;
 }
 
